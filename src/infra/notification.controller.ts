@@ -8,10 +8,13 @@ export class NotificationsController {
   @Post()
   async create(@Body() body: CreateNotificationBody) {
     const { recipientId, content, category } = body;
-    const {} = await this.SendNotification.execute({
+    const { notification } = await this.SendNotification.execute({
       recipientId,
       content,
       category,
     });
+    return {
+      notification,
+    };
   }
 }
