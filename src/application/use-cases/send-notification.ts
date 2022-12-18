@@ -1,4 +1,4 @@
-import NotificationRepository from '../repositories/notification-repositories';
+import { NotificationRepository } from 'src/application/repositories/notification-repositories';
 import { Content } from './../entities/content';
 import { Notification } from './../entities/notification';
 interface SendNotificationRequest {
