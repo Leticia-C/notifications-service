@@ -22,4 +22,10 @@ export class InMemoryNofiticationsRepository
     if (notificationIndex >= 0)
       this.notifications[notificationIndex] = notification;
   }
+  async countManyByRecipientId(recipientId: string): Promise<number> {
+    const notification = this.notifications.filter(
+      (item) => item.recipientId === recipientId,
+    ).length;
+    return notification;
+  }
 }
