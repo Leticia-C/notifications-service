@@ -1,0 +1,30 @@
+import { NotificationNotFound } from './erros/notification-not-fond';
+import { Injectable } from '@nestjs/common';
+import { NotificationsRepository } from '../../application/repositories/notification-repositories';
+
+interface CancelNotificationRequest {
+  notificationId: string;
+}
+
+type CancelNotificationResponse = void;
+
+@Injectable()
+export class CancelNotification {
+  constructor(private notificationsRepository: NotificationsRepository) {}
+
+  async execute(
+    request: CancelNotificationRequest,
+  ): Promise<CancelNotificationResponse> {
+    const { notificationId } = request;
+
+    const notification = await this.notificationsRepository.findById(
+      notificationId,
+    );
+
+    if (!notification) throw new NotificationNotFound();
+
+    notification.cancel();
+
+    await this.notificationsRepository.save(notification);
+  }
+}
