@@ -1,7 +1,9 @@
-import NotificationRepository from 'src/application/repositories/notification-repositories';
-import { Notification } from './../../src/application/entities/notification';
+import { NotificationsRepository } from '@application/repositories/notification-repositories';
+import { Notification } from '@application/entities/notification';
 
-export class InMemoryNofiticationRepository implements NotificationRepository {
+export class InMemoryNofiticationsRepository
+  implements NotificationsRepository
+{
   public notifications: Notification[] = [];
   async create(notification: Notification) {
     this.notifications.push(notification);
