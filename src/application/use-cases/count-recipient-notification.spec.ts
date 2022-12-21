@@ -3,7 +3,7 @@ import { CountRecipientNotification } from './count-recipient-notification';
 import { makeNotification } from '../../../test/factories/notification-factory';
 
 describe('Count Recipient notification ', () => {
-  test('it should be able to cancel a notification ', async () => {
+  test('it should be able to count a recipient notification ', async () => {
     const notificationsRepository = new InMemoryNofiticationsRepository();
     const countRecipientNotification = new CountRecipientNotification(
       notificationsRepository,
