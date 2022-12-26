@@ -15,7 +15,7 @@ describe('Read notification ', () => {
       notificationId: notification.id,
     });
 
-    expect(notificationsRepository.notifications[0].readAt).toEqual(
+    expect(notificationsRepository.notifications[0].readTime).toEqual(
       expect.any(Date),
     );
   });

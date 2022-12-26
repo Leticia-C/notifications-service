@@ -8,7 +8,7 @@ describe('Unread notification ', () => {
     const unreadNotification = new UnreadNotification(notificationsRepository);
 
     const notification = makeNotification({
-      readAt: new Date(),
+      readTime: new Date(),
     });
 
     notificationsRepository.create(notification);
@@ -17,7 +17,7 @@ describe('Unread notification ', () => {
       notificationId: notification.id,
     });
 
-    expect(notificationsRepository.notifications[0].readAt).toBeNull();
+    expect(notificationsRepository.notifications[0].readTime).toBeNull();
   });
   test('it should not  be able to cancel a non existing notification ', async () => {
     const notificationsRepository = new InMemoryNofiticationsRepository();
